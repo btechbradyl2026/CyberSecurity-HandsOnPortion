@@ -1,0 +1,37 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+
+//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
+// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+public class Main {
+    public static void main(String[] args) throws InterruptedException {
+        Message msg = new Message("yahoo!");
+        Block blocks = new Block(msg, "0000000000");
+        ArrayList<Generals> generals = new ArrayList<>();
+        for (int i = 0; i < 100; i ++) {
+            generals.add(new Generals());
+        }
+        Chain.theBlockchain.add(blocks);
+        for (int j = 0; j < 100; j ++) {
+            Block[] blocks2 = new Block[generals.size()];
+            for (int i = 0; i < generals.size(); i ++) {
+                blocks2[i] = (generals.get(i).proposeBlock());
+            }
+            String[] holay = new String[blocks2.length];
+            for (int i = 0; i < blocks2.length; i ++) {
+                holay[i] = (blocks2[i].getTrueHash());
+            }
+            String molay = MostFrequentString.findMostFrequent(holay);
+            for (int i = 0; i < blocks2.length; i ++) {
+                if (blocks2[i].getTrueHash().equals(molay)) {
+                    Chain.theBlockchain.add(blocks2[i]);
+                    i = blocks2.length;
+                }
+            }
+        }
+        for (int z = 0; z < Chain.theBlockchain.size(); z ++) {
+            System.out.println(Chain.theBlockchain.get(z).hash);
+        }
+
+    }
+}
