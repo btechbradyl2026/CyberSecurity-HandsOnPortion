@@ -1,9 +1,10 @@
 import java.util.Random;
 
 public class Generals {
+    boolean trust;
 
     public Generals() {
-        boolean trust = true;
+        trust = true;
 
         Random random = new Random();
         int min = 1;
@@ -13,6 +14,8 @@ public class Generals {
             trust = false;
         }
     }
+
+
 
     public Message getMessage() {
         String[] rands = {

@@ -11,6 +11,13 @@ public class Main {
         for (int i = 0; i < 100; i ++) {
             generals.add(new Generals());
         }
+        int trust = 0;
+        for (int i = 0; i < generals.size(); i ++) {
+            if (generals.get(i).trust == false) {
+                trust ++;
+            }
+        }
+        System.out.println("There are currently " + trust + " false generals out of " + generals.size() + " generals!");
         Chain.theBlockchain.add(blocks);
         for (int j = 0; j < 100; j ++) {
             Block[] blocks2 = new Block[generals.size()];
