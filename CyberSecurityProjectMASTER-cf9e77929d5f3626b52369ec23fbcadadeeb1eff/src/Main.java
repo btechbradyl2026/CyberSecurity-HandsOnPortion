@@ -11,6 +11,9 @@ public class Main {
         for (int i = 0; i < 100; i ++) {
             generals.add(new Generals());
         }
+//
+//        Write code here to remove the false generals
+//
         int trust = 0;
         for (int i = 0; i < generals.size(); i ++) {
             if (generals.get(i).trust == false) {
